@@ -15,6 +15,7 @@ module.exports = {
         //     {
         //     template: path.resolve(__dirname, 'public', 'index.html')
         // }
-        )
+        ),
+        new webpack.ProgressPlugin(),
     ]
 }
