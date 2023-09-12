@@ -1,0 +1,12 @@
+version: "3.8"
+services:  
+  frontend:
+    image: "notes-frontend-prod"
+    build:
+      context: ./client
+      dockerfile: Dockerfile.production
+    ports:
+      - "80:80"
+    env_file:
+      - ./config/production.env 
+volumes:
