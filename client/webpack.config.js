@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
-    entry: path.resolve(__dirname, 'src', 'index.js'),
+    entry: path.resolve(__dirname, 'src', 'index.ts'),
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'build'),
@@ -12,10 +12,22 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin(
-        //     {
-        //     template: path.resolve(__dirname, 'public', 'index.html')
-        // }
+            {
+            template: path.resolve(__dirname, 'public', 'index.html')
+        }
         ),
         new webpack.ProgressPlugin(),
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            }
+        ],
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
 }
