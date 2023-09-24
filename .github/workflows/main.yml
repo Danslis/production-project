@@ -16,20 +16,18 @@ jobs:
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: open client directory
-        run: cd client
+          node-version: ${{ matrix.node-version }}     
       - name: install modules
-        run: npm install
+        run: client npm install
       - name: build production project
-        run: npm run build:prod
+        run: client npm run build:prod
       - name: linting typescript
-        run: npm run lint:ts
+        run: client npm run lint:ts
       - name: linting css
-        run: npm run lint:scss
+        run: client npm run lint:scss
       - name: unit testing
-        run: npm run test:unit
+        run: client npm run test:unit
       - name: build storybook
-        run: npm run storybook:build
+        run: client npm run storybook:build
       - name: screenshot testing
-        run: npm run test:ui:ci
+        run: client npm run test:ui:ci
