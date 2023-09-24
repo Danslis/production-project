@@ -18,16 +18,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}     
       - name: install modules
-        run: client npm install
+        run: cd client npm install
       - name: build production project
-        run: client npm run build:prod
+        run: cd client npm run build:prod
       - name: linting typescript
-        run: client npm run lint:ts
+        run: cd client npm run lint:ts
       - name: linting css
-        run: client npm run lint:scss
+        run: cd client npm run lint:scss
       - name: unit testing
-        run: client npm run test:unit
+        run: cd client npm run test:unit
       - name: build storybook
-        run: client npm run storybook:build
+        run: cd client npm run storybook:build
       - name: screenshot testing
-        run: client npm run test:ui:ci
+        run: cd client npm run test:ui:ci
